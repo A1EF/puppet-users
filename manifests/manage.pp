@@ -15,7 +15,7 @@ define users::manage
       Struct[{
         key       => String[1, default],
         key_label => String[1, default],
-        key_type  => String[7, 7],
+        key_type  => String[7, 11],
       }]
     ],
   }] $userdata
