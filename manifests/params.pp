@@ -27,6 +27,7 @@ class users::params(
         ],
         managehome => Boolean,
         password   => Optional[String[0, default]],
+        shell      => Optional[String[2, default]],
         present    => Boolean,
         ssh        => Optional[
           Struct[{

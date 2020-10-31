@@ -10,6 +10,7 @@ define users::manage
     ],
     managehome => Boolean,
     password   => Optional[String[0, default]],
+    shell      => Optional[String[2, default]],
     present    => Boolean,
     ssh        => Optional[
       Struct[{
@@ -35,7 +36,10 @@ define users::manage
       false => $userdata['password'],
       true  => '',
     },
-    shell    => '/bin/bash',
+    shell    =>  empty($userdata['shell']) ? {
+      false  => $userdata['shell'],
+      true   => '/bin/bash',
+    },
     groups   => empty($userdata['groups']) ? {
       false  => $userdata['groups'],
       true   => [],
